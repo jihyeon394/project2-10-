@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<style>
+@font-face{
+font-family:'YunChorokwoosanEoriniMinguk';
+src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408@1.0/YoonChildfundkoreaMinGuk.woff2') format('woff2');
+font-weight:normal;
+font-display:swap;
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+margin:0;
+overflow-x:hidden;
+overflow-y:hidden;
+
+background-image:url("paper.jpg");
+background-repeat:repeat;
+background-size:500px;
+}
+
+html.scroll-open,
+body.scroll-open{
+overflow-y:auto;
+}
+
+.contents{
+position:relative;
+width:100%;
+height:100%;
+margin:0 auto;
+overflow:visible;
+}
+
+.inner{
+position:relative;
+width:100%;
+max-width:1400px;
+height:100%;
+margin:0 auto;
+}
+.scene5 .inner{
+pointer-events:none;
+}
+/* section 1 */
+.scene{
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+background:url("background1.png") center / cover no-repeat;
+}
+
+.play-text{
+position:absolute;
+left:50%;
+top:42vh;
+transform:translateX(-50%);
+z-index:20;
+font-family:'YunChorokwoosanEoriniMinguk';
+font-size:64px;
+color:black;
+white-space:nowrap;
+opacity:0;
+animation:
+fadeInText 1.8s cubic-bezier(.22,.61,.36,1) forwards,
+textFloat 3.5s ease-in-out 11s infinite;
+animation-delay:9.2s;
+}
+
+@keyframes fadeInText{
+0%{opacity:0; transform:translateX(-50%) translateY(45px) scale(.97);}
+100%{opacity:1; transform:translateX(-50%) translateY(0) scale(1);}
+}
+
+@keyframes textFloat{
+0%,100%{transform:translateX(-50%) translateY(0);}
+50%{transform:translateX(-50%) translateY(-6px);}
+}
+
+.balloon-stage,
+.cloud-stage{
+position:absolute;
+inset:0;
+overflow:hidden;
+}
+
+.balloon{
+position:absolute;
+width:190px;
+bottom:-520px;
+transform:translateX(-50%);
+pointer-events:none;
+will-change:transform;
+}
+
+.balloon.back{width:190px; opacity:.85;}
+.balloon.front{width:200px;}
+
+@keyframes floatUpWithPause{
+0%{transform:translateX(-50%) translateY(0);}
+70%{transform:translateX(-50%) translateY(-88vh);}
+88%{transform:translateX(-50%) translateY(-110vh);}
+100%{transform:translateX(-50%) translateY(-170vh);}
+}
+
+.cloud{
+position:absolute;
+left:-650px;
+width:600px;
+pointer-events:none;
+will-change:transform;
+}
+
+.cloud.cloud2{left:-650px;}
+
+@keyframes cloudMove{
+0%{transform:translateX(0);}
+100%{transform:translateX(210vw);}
+}
+
+@keyframes cloudStop{
+0%{transform:translateX(0);}
+72%{transform:translateX(calc(50vw + 350px));}
+100%{transform:translateX(calc(50vw + 350px));}
+}
+
+/* section 2 */
+.scene2{
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+background:transparent;
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+.drop{
+position:absolute;
+pointer-events:none;
+}
+
+.scene2.active .drop{
+animation:dropIn 2.8s cubic-bezier(.22,.8,.25,1) forwards;
+animation-fill-mode:forwards;
+}
+
+.scene2.active .r7{
+animation:dropIn 2.8s cubic-bezier(.22,.8,.25,1) forwards;
+pointer-events:auto !important;
+z-index:999;
+}
+
+
+
+@keyframes dropIn{
+0%{opacity:0; transform:translateY(-120vh) rotate(-6deg);}
+60%{opacity:1; transform:translateY(25px) rotate(3deg);}
+78%{transform:translateY(-8px) rotate(-2deg);}
+100%{opacity:1; transform:translateY(0) rotate(0);}
+}
+
+@keyframes pulseDrop{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.04);}
+}
+
+.r1{left:270px; top:40px; width:180px; animation-delay:.6s;}
+.r2{left:1120px; top:20px; animation-delay:.1s;}
+.r3{left:930px; top:170px;  width:135px; animation-delay:1.4s;}
+.r4{left:110px; top:250px; width:125px;animation-delay:1.55s;}
+.r5{left:300px; top:330px;width:150px; animation-delay:1.7s;}
+.r6{left:1180px; top:290px;width:140px; animation-delay:1.85s;}
+
+.r7{
+  position:relative;
+width:230px;
+height:auto;
+animation-delay:1s;
+filter:drop-shadow(0 0 12px rgba(120,190,255,.35));
+pointer-events:auto !important;
+cursor:pointer;
+z-index:30;
+
+transition:
+left 1.2s cubic-bezier(.22,.61,.36,1),
+top 1.2s cubic-bezier(.22,.61,.36,1),
+opacity .8s ease;
+}
+
+.r7:hover{
+scale:1.05;
+filter:drop-shadow(0 0 18px rgba(120,190,255,.55));
+}
+
+.r8{left:1360px; top:390px; width:120px;animation-delay:1.15s;}
+.r9{left:-20px; top:520px; width:155px;animation-delay:1.3s;}
+.r10{left:1190px; top:500px; width:185px;animation-delay:1.45s;}
+.r11{left:250px; top:670px; width:120px; animation-delay:1.6s;}
+.r12{left:1320px; top:720px; width:120px;animation-delay:1.6s;}
+.r13{left:40px; top:790px; width:205px;animation-delay:1.9s;}
+.r14{left:370px; top:820px; width:165px;animation-delay:2.05s;}
+.r15{left:930px; top:790px; width:160px;animation-delay:2.2s;}
+.r16{left:1240px; top:830px; width:185px;animation-delay:2.35s;}
+
+.r7:hover{
+scale:1.05;
+filter:drop-shadow(0 0 18px rgba(120,190,255,.55));
+}
+
+.scene2.move-on .drop:not(.r7){
+animation:dropOut 1.2s ease-in forwards;
+}
+
+@keyframes dropOut{
+0%{opacity:1; transform:translateY(0) rotate(0);}
+100%{opacity:0; transform:translateY(-120vh) rotate(8deg);}
+}
+
+
+.rain-text{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-45%);
+color:#111;
+text-align:center;
+z-index:10;
+}
+
+.hero-wrap{
+position:absolute;
+
+left:50%;
+top:415px;
+
+transform:translate(-50%,-50%);
+
+width:230px;
+height:auto;
+
+z-index:30;
+}
+
+.t1{
+font-size:42px;
+margin-bottom:10px;
+transform:translateY(-45px);
+}
+
+.t2{
+font-size:42px;
+transform:translate(110px,-12px);
+}
+
+.t3{
+font-size:34px;
+writing-mode:vertical-rl;
+position:absolute;
+right:-45px;
+top:160px;
+}
+
+.t4{
+font-size:44px;
+margin-top:260px;
+transform:translateY(70px);
+}
+
+.t5{
+font-size:72px;
+transform:translateY(70px);
+}
+
+/* section 3 */
+.scene3{
+display:none;
+position:relative;
+width:100vw;
+height:100vh;
+overflow:hidden;
+background:transparent;
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+.scene3.open{display:block;}
+
+.alone-text{
+position:absolute;
+left:50%;
+top:72%;
+transform:translateX(-50%);
+font-size:120px;
+line-height:1;
+color:black;
+}
+
+.drop-target{
+position:absolute;
+left:50%;
+top:-140px;
+
+width:1px;
+height:1px;
+
+transform:translateX(-50%);
+}
+
+/* section 4 */
+.scene4{
+display:none;
+position:relative;
+width:100vw;
+height:100vh;
+background:transparent;
+overflow:hidden;
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+
+.scene4.open{display:block;}
+
+.final-text{
+position:absolute;
+top:7vh;
+left:50%;
+transform:translateX(-46%);
+font-size:64px;
+white-space:nowrap;
+color:black;
+z-index:10;
+}
+
+.color-ball{
+position:absolute;
+left:50%;
+top:27vh;
+transform:translateX(-50%);
+width:520px;
+z-index:5;
+animation:
+spinBall 12s linear infinite,
+sparkle 2.4s ease-in-out infinite;
+}
+
+@keyframes spinBall{
+0%{transform:translateX(-50%) rotate(0deg);}
+100%{transform:translateX(-50%) rotate(360deg);}
+}
+
+@keyframes sparkle{
+0%,100%{
+filter:brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0));
+}
+50%{
+filter:brightness(1.15) drop-shadow(0 0 6px rgba(255,255,255,.35));
+}
+}
+
+/* section 5 */
+.scene5{
+display:none;
+position:relative;
+width:100vw;
+height:1600px;
+background:transparent;
+overflow:visible;
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+.scene5.open{
+display:block;
+}
+
+.circle{
+position:absolute;
+animation:circleSpin linear infinite;
+transition:
+transform .55s cubic-bezier(.2,.8,.2,1),
+filter .55s ease;
+will-change:transform;
+pointer-events:auto;
+z-index:5;
+}
+
+@keyframes circleSpin{
+0%{rotate:0deg;}
+100%{rotate:360deg;}
+}
+
+.c1{left:-6%; top:26%; width:300px; animation-duration:16s;}
+.c2{left:12%; top:39%; width:220px; animation-duration:12s;}
+.c3{right:-4%; top:20%; width:300px; animation-duration:18s;}
+.c4{left:32%; top:42%; width:350px; animation-duration:14s;}
+.c5{left:-3%; bottom:2%; width:300px; animation-duration:20s;}
+.c6{right:18%; top:44%; width:220px; animation-duration:13s;}
+.c7{right:25%; bottom:2%; width:240px; animation-duration:15s;}
+.c8{left:14%; top:70%; width:170px; animation-duration:11s;}
+.c9{right:10%;bottom:20%;width:200px;animation-duration:17s;}
+
+.c1:hover,
+.c2:hover,
+.c3:hover,
+.c4:hover,
+.c5:hover,
+.c6:hover,
+.c7:hover,
+.c8:hover,
+.c9:hover{
+animation-play-state:paused;
+z-index:20;
+}
+
+.c1:hover{transform:translate(-40px,-20px) scale(1.05);}
+.c2:hover{transform:translate(20px,30px) scale(.95);}
+.c3:hover{transform:translate(50px,-10px) scale(1.03);}
+.c4:hover{transform:translate(-30px,40px) scale(1.06);}
+.c5:hover{transform:translate(30px,-40px) scale(.97);}
+.c6:hover{transform:translate(-55px,-20px) scale(1.04);}
+.c7:hover{transform:translate(20px,-50px) scale(.96);}
+.c8:hover{transform:translate(-10px,20px) scale(1.03);}
+.c9:hover{transform:translate(20px,-10px) scale(.97);}
+
+.s5-text{
+position:absolute;
+color:black;
+z-index:10;
+}
+
+.main{
+left:50%;
+top:20%;
+transform:translateX(-50%);
+font-size:64px;
+}
+
+.curve-text{
+position:absolute;
+color:black;
+z-index:10;
+}
+
+.curve-text span{
+position:absolute;
+display:block;
+}
+
+.curve1{
+left:56%;
+top:40%;
+font-size:38px;
+}
+
+.curve1 .c-a{left:0px; top:0px;}
+.curve1 .c-b{left:45px; top:95px;}
+.curve1 .c-c{left:55px; top:155px;}
+.curve1 .c-d{left:35px; top:260px;}
+
+.curve2{
+left:27%;
+top:64%;
+font-size:34px;
+}
+
+.curve2 .c-a{left:0px; top:0px;}
+.curve2 .c-b{left:42px; top:70px;}
+.curve2 .c-c{left:85px; top:140px;}
+
+.curve3{
+left:42%;
+top:80%;
+font-size:36px;
+}
+
+.curve3 .c-a{left:0px; top:0px;}
+.curve3 .c-b{left:70px; top:65px;}
+
+/* section 6 */
+.scene6{
+display:none;
+
+position:relative;
+width:100%;
+height:5200px;
+
+overflow:visible;
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+.scene6.open{
+display:block;
+}
+
+.scene6-canvas{
+position:relative;
+
+width:100%;
+height:5200px;
+
+background-image:url("paper2.png");
+background-size:100% 100%;
+background-repeat:no-repeat;
+background-position:center top;
+}
+
+.stripe-bg{
+position:absolute;
+
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+
+height:100%;
+width:auto;
+
+object-fit:contain;
+
+pointer-events:none;
+user-select:none;
+}
+
+.s6-text{
+position:absolute;
+color:white;
+font-family:'YunChorokwoosanEoriniMinguk';
+font-size:58px;
+z-index:5;
+white-space:nowrap;
+}
+
+.s6-t1{
+top:720px;
+right:230px;
+}
+
+.s6-t2{
+top:1840px;
+left:170px;
+}
+
+.s6-t3{
+top:3000px;
+right:290px;
+}
+
+.s6-t4{
+top:4250px;
+left:50%;
+
+transform:translateX(-50%);
+
+animation:none;
+}
+
+.s6-t4.panic{
+animation:shakeText .4s infinite;
+}
+
+.foot{
+position:absolute;
+width:200px;
+z-index:8;
+pointer-events:none;
+}
+
+.foot1{
+top:270px;
+left:760px;
+transform:rotate(12deg);
+}
+
+.foot2{
+top:1380px;
+left:430px;
+transform:rotate(-10deg);
+}
+
+.foot3{
+top:2465px;
+left:380px;
+transform:rotate(14deg);
+}
+
+.foot4{
+top:3440px;
+left:900px;
+transform:rotate(-8deg);
+}
+
+.foot5{
+top:3910px;
+left:500px;
+width:200px;
+transform:rotate(12deg);
+}
+
+.foot6{
+top:4228px;
+left:800px;
+width:200px;
+transform:rotate(-14deg);
+z-index:8;
+}
+
+.foot{
+opacity:0;
+
+transition:
+opacity .35s ease,
+transform .35s ease;
+}
+
+.foot.show{
+animation:footStep 2.8s ease forwards;
+}
+
+@keyframes shakeText{
+
+0%{transform:translateX(-50%) rotate(0deg);}
+20%{transform:translateX(-48%) rotate(-2deg);}
+40%{transform:translateX(-52%) rotate(2deg);}
+60%{transform:translateX(-49%) rotate(-1deg);}
+80%{transform:translateX(-51%) rotate(1deg);}
+100%{transform:translateX(-50%) rotate(0deg);}
+
+}
+@keyframes footStep{
+
+0%{
+opacity:0;
+transform:scale(.7);
+}
+
+20%{
+opacity:1;
+transform:scale(1);
+}
+
+85%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(.92);
+}
+
+}
+
+.scene7{
+position:relative;
+width:100vw;
+
+height:0;
+min-height:0;
+
+opacity:0;
+pointer-events:none;
+
+overflow:hidden;
+
+transition:opacity .8s ease;
+
+font-family:'YunChorokwoosanEoriniMinguk';
+}
+
+.scene7.open{
+height:100vh;
+
+opacity:1;
+pointer-events:auto;
+}
+
+.s7-text{
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+color:black;
+}
+
+.s7-t1{
+font-size:82px;
+margin-bottom:30px;
+}
+
+.s7-t2{
+font-size:120px;
+}
+
+
+.scene8{
+height:0;
+opacity:0;
+pointer-events:none;
+overflow:hidden;
+}
+.scene8.open{
+height:100vh;
+opacity:1;
+pointer-events:auto;
+}
+
+.scene8-bg{
+position:relative;
+
+width:100%;
+height:100%;
+
+background-image:url("yellowpaper.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.s8-text{
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+font-family:'YunChorokwoosanEoriniMinguk';
+
+font-size:90px;
+line-height:1.3;
+
+text-align:center;
+
+color:black;
+
+z-index:5;
+}
+
+.star{
+position:absolute;
+width:170px;
+
+pointer-events:none;
+}
+
+.star1{
+left:16%;
+top:38%;
+
+transform:rotate(-8deg);
+}
+
+.star2{
+left:26%;
+top:66%;
+
+transform:rotate(10deg);
+}
+
+.star3{
+right:18%;
+top:48%;
+
+transform:rotate(-6deg);
+}
+</style>
+</head>
+
+<body>
+<section class="scene">
+  <div class="contents">
+
+    <div class="balloon-stage" id="balloonStage"></div>
+    <div class="cloud-stage" id="cloudStage"></div>
+
+    <div class="inner">
+      <div class="play-text">나랑 놀자</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="scene2" id="rainScene">
+  <div class="contents">
+    <img src="drop1.png" class="drop r1">
+    <img src="drop2.png" class="drop r2">
+    <img src="drop3.png" class="drop r3">
+    <img src="drop1.png" class="drop r4">
+    <img src="drop2.png" class="drop r5">
+    <img src="drop3.png" class="drop r6">
+   
+    <img src="drop2.png" class="drop r8">
+    <img src="drop3.png" class="drop r9">
+    <img src="drop1.png" class="drop r10">
+    <img src="drop2.png" class="drop r11">
+    <img src="drop3.png" class="drop r12">
+    <img src="drop1.png" class="drop r13">
+    <img src="drop2.png" class="drop r14">
+    <img src="drop3.png" class="drop r15">
+    <img src="drop1.png" class="drop r16">
+<div class="inner">
+  <div class="hero-wrap">
+  <img src="drop4.png" class="drop r7">
+</div>
+    <div class="rain-text">
+      <div class="t1">나는</div>
+      <div class="t2">이</div>
+      <div class="t3">물방울이</div>
+      <div class="t4">제일</div>
+      <div class="t5">빠를거같아</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="scene3" id="nextScene">
+  <div class="contents">
+
+    <div class="inner">
+      <div class="alone-text">역시<div class="drop-target">
+    </div>
+</div>
+    </div>
+ </div>
+</section>
+
+
+
+<section class="scene4" id="scene4">
+  <div class="contents">
+
+    <img src="circle1.png" class="color-ball">
+
+    <div class="inner">
+      <div class="final-text">제일 빠른 물방울이 맞았어</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="scene5" id="scene5">
+  <div class="contents">
+    <img src="circle1.png" class="circle c1">
+    <img src="circle2.png" class="circle c2">
+    <img src="circle1.png" class="circle c3">
+    <img src="circle1.png" class="circle c4">
+    <img src="circle2.png" class="circle c5">
+    <img src="circle1.png" class="circle c6">
+    <img src="circle2.png" class="circle c7">
+    <img src="circle1.png" class="circle c8">
+    <img src="circle1.png" class="circle c9">
+
+    <div class="inner">
+    <div class="s5-text main">이번에는</div>
+<div class="curve-text curve1">
+  <span class="c-a">어</span>
+  <span class="c-b">디</span>
+  <span class="c-c">에</span>
+  <span class="c-d">도</span>
+</div>
+
+<div class="curve-text curve2">
+  <span class="c-a">닿</span>
+  <span class="c-b">으</span>
+  <span class="c-c">면</span>
+</div>
+
+<div class="curve-text curve3">
+  <span class="c-a">안</span>
+  <span class="c-b">돼</span>
+</div>
+  </div>
+
+  </div>
+</section>
+
+<section class="scene6">
+    <div class="scene6-canvas">
+ <div class="s6-text s6-t1">흰색만 밟아야지</div>
+ <div class="s6-text s6-t2">검은색 밟으면</div>
+ <div class="s6-text s6-t3">넘어질거야</div>
+ <div class="s6-text s6-t4">으악!</div>
+
+
+  <img src="yellowfoot1.png" class="foot foot1">
+  <img src="yellowfoot2.png" class="foot foot2">
+  <img src="yellowfoot1.png" class="foot foot3">
+  <img src="yellowfoot2.png" class="foot foot4">
+  <img src="redfoot1.png" class="foot foot5">
+  <img src="redfoot2.png" class="foot foot6">
+</div>
+</section>
+
+<section class="scene7">
+
+  <div class="s7-text">
+    <div class="s7-t1">넘어져도</div>
+    <div class="s7-t2">괜찮아</div>
+  </div>
+
+</section>
+
+<section class="scene8">
+
+  <div class="scene8-bg">
+
+    <img src="bluestar1.png" class="star star1">
+    <img src="bluestar1.png" class="star star2">
+    <img src="bluestar2.png" class="star star3">
+
+    <div class="s8-text">
+      다시 일어나서<br>
+      놀아야지
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+history.scrollRestoration = "manual";
+
+const balloonStage = document.getElementById("balloonStage");
+const cloudStage = document.getElementById("cloudStage");
+const rainScene = document.getElementById("rainScene");
+const heroDrop = document.querySelector(".r7");
+const nextScene = document.getElementById("nextScene");
+const scene4 = document.getElementById("scene4");
+const scene5 = document.getElementById("scene5");
+const scene6 = document.querySelector(".scene6");
+const scene7 = document.querySelector(".scene7");
+const scene8 = document.querySelector(".scene8");
+
+const foot1 = document.querySelector(".foot1");
+const foot2 = document.querySelector(".foot2");
+const foot3 = document.querySelector(".foot3");
+const foot4 = document.querySelector(".foot4");
+const foot5 = document.querySelector(".foot5");
+const foot6 = document.querySelector(".foot6");
+
+const panicText = document.querySelector(".s6-t4");
+
+window.addEventListener("scroll", () => {
+
+  const rect5 = scene5.getBoundingClientRect();
+
+  if(
+    scene5.classList.contains("open") &&
+    rect5.top < window.innerHeight * 0.2
+  ){
+    scene6.classList.add("open");
+  }
+
+  const s6Rect = scene6.getBoundingClientRect();
+
+  if(s6Rect.top < window.innerHeight * 0.8){
+    foot1.classList.add("show");
+  }else{
+    foot1.classList.remove("show");
+  }
+
+  if(s6Rect.top < -900){
+    foot1.classList.remove("show");
+    foot2.classList.add("show");
+  }else{
+    foot2.classList.remove("show");
+  }
+
+  if(s6Rect.top < -1800){
+    foot2.classList.remove("show");
+    foot3.classList.add("show");
+  }else{
+    foot3.classList.remove("show");
+  }
+
+  if(s6Rect.top < -2700){
+    foot3.classList.remove("show");
+    foot4.classList.add("show");
+  }else{
+    foot4.classList.remove("show");
+  }
+
+  if(s6Rect.top < -3800){
+    foot4.classList.remove("show");
+    foot5.classList.add("show");
+    foot6.classList.add("show");
+    panicText.classList.add("panic");
+  }else{
+    foot5.classList.remove("show");
+    foot6.classList.remove("show");
+    panicText.classList.remove("panic");
+  }
+
+  if(s6Rect.top < -4200){
+    scene7.classList.add("open");
+  }
+
+  const rect7 = scene7.getBoundingClientRect();
+
+  if(rect7.top < window.innerHeight * 0.7){
+    scene8.classList.add("open");
+  }
+
+});
+
+const balloonLayout = [
+
+{ src:"balloon1.png", left:-120, delay:0.0, duration:3.6, layer:"back" },
+{ src:"balloon2.png", left:90, delay:0.1, duration:3.6, layer:"front" },
+{ src:"balloon3.png", left:300, delay:0.0, duration:3.6, layer:"" },
+{ src:"balloon4.png", left:520, delay:0.1, duration:3.6, layer:"front" },
+{ src:"balloon2.png", left:740, delay:0.0, duration:3.6, layer:"" },
+{ src:"balloon1.png", left:960, delay:0.1, duration:3.6, layer:"back" },
+{ src:"balloon4.png", left:1180, delay:0.0, duration:3.6, layer:"" },
+{ src:"balloon3.png", left:1390, delay:0.1, duration:3.6, layer:"back" },
+{ src:"balloon1.png", left:1600, delay:0.0, duration:3.6, layer:"front" },
+
+{ src:"balloon2.png", left:20, delay:0.15, duration:3.6, layer:"" },
+{ src:"balloon4.png", left:240, delay:0.25, duration:3.6, layer:"back" },
+{ src:"balloon3.png", left:460, delay:0.15, duration:3.6, layer:"" },
+{ src:"balloon1.png", left:700, delay:0.25, duration:3.6, layer:"back" },
+{ src:"balloon2.png", left:1040, delay:0.15, duration:3.6, layer:"front" },
+{ src:"balloon4.png", left:1480, delay:0.25, duration:3.6, layer:"" }
+
+];
+
+function createBalloon(item){
+const img = document.createElement("img");
+img.src = item.src;
+img.className = `balloon ${item.layer}`;
+img.style.left = `${item.left}px`;
+img.style.animation = `floatUpWithPause ${item.duration}s ease-in-out ${item.delay}s forwards`;
+balloonStage.appendChild(img);
+img.addEventListener("animationend", () => img.remove());
+}
+
+balloonLayout.forEach(createBalloon);
+
+function createCloud(src, top, delay, speed, stop=false){
+const img = document.createElement("img");
+img.src = src;
+img.className = stop ? "cloud cloud2" : "cloud";
+img.style.top = top;
+const animationName = stop ? "cloudStop" : "cloudMove";
+const easing = stop ? "ease-out" : "linear";
+img.style.animation = `${animationName} ${speed}s ${easing} ${delay}s forwards`;
+cloudStage.appendChild(img);
+}
+
+setTimeout(() => {
+createCloud("cloud1.png", "52vh", 0, 10, false);
+createCloud("cloud1.png", "3vh", 1.2, 10, false);
+createCloud("cloud1.png", "68vh", 2.4, 10, false);
+createCloud("cloud1.png", "-10vh", 3.6, 10, false);
+createCloud("cloud1.png", "52vh", 4.8, 10, false);
+createCloud("cloud1.png", "3vh", 6, 10, false);
+createCloud("cloud1.png", "68vh", 7.2, 10, false);
+createCloud("cloud2.png", "22vh", 1, 4.3, true);
+}, 4200);
+
+function startRainAnimation(){
+const rect = rainScene.getBoundingClientRect();
+if(rect.top < window.innerHeight * 0.8){
+rainScene.classList.add("active");
+window.removeEventListener("scroll", startRainAnimation);
+}
+}
+
+window.addEventListener("scroll", startRainAnimation);
+
+setTimeout(() => {
+document.body.classList.add("scroll-open");
+document.documentElement.classList.add("scroll-open");
+window.scrollTo(0, 0);
+}, 10500);
+
+heroDrop.addEventListener("click", () => {
+
+  rainScene.classList.add("move-on");
+
+  nextScene.classList.add("open");
+  scene4.classList.add("open");
+  scene5.classList.add("open");
+
+  // 현재 위치 저장
+  const startRect = heroDrop.getBoundingClientRect();
+
+heroDrop.style.position = "fixed";
+
+heroDrop.style.animation = "none";
+heroDrop.style.animationFillMode = "forwards";
+
+heroDrop.style.transform = "none";
+
+heroDrop.style.opacity = "1";
+
+  heroDrop.style.left = startRect.left + "px";
+  heroDrop.style.top = startRect.top + "px";
+
+  heroDrop.style.margin = "0";
+
+  heroDrop.style.zIndex = "9999";
+
+  // section3 먼저 이동
+  nextScene.querySelector(".contents").appendChild(heroDrop);
+
+  // section3 스크롤
+  nextScene.scrollIntoView({
+    behavior:"smooth"
+  });
+
+  // 목표 위치
+  setTimeout(() => {
+
+    const target =
+      document.querySelector(".drop-target");
+
+    const targetRect =
+      target.getBoundingClientRect();
+
+    heroDrop.style.left =
+      (targetRect.left - heroDrop.offsetWidth/2) + "px";
+
+    heroDrop.style.top =
+      (targetRect.top - heroDrop.offsetHeight/2) + "px";
+
+  }, 200);
+
+  // 이동 완료 후 section3 내부에 귀속
+  setTimeout(() => {
+
+    heroDrop.style.position = "absolute";
+
+   heroDrop.style.left = "42%";
+heroDrop.style.top = "30%";
+
+heroDrop.style.transform =
+  "translate(-50%, -58%)";
+    heroDrop.style.animation =
+      "pulseDrop 2.4s ease-in-out infinite";
+
+  }, 1500);
+
+});
+
+</script>
+
+</body>
+</html>
